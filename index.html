@@ -15,11 +15,14 @@
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
       }
 
-       // Get reference to the button
-      const buttons = document.getElementById('buttonsContainer');
+       
 
       AFRAME.registerComponent('markerhandler', {
     init: function () {
+
+      // Get reference to the button
+      const buttons = document.getElementById('buttonsContainer');
+      
       this.el.sceneEl.addEventListener('markerFound', () => {
        console.log("nft detcted event")
         // Show the button when the NFT is detected
