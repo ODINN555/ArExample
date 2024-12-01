@@ -118,22 +118,22 @@
   }
       });
       
-      // // Listen for the nft-detected event
-      // document.querySelector('#nft').addEventListener('nft-detected', function () {
-      //   console.log("nft detcted event")
-      //   // Show the button when the NFT is detected
-      //   buttons.style.display = 'flex';
-      //   console.log('NFT detected! Button is visible.');
-      // });
+      // Listen for the nft-detected event
+      document.querySelector('#nft').addEventListener('markerFound', function () {
+        console.log("nft detcted event")
+        // Show the button when the NFT is detected
+        buttons.style.display = 'flex';
+        console.log('NFT detected! Button is visible.');
+      });
 
-      // // Listen for the nft-lost event
-      // document.querySelector('#nft').addEventListener('nft-lost', function () {
-      //   console.log("nft lost event")
-      //   // Hide the button when the NFT is lost
-      //   handlePauseClick()
-      //   buttons.style.display = 'none';
-      //   console.log('NFT lost! Button is hidden.');
-      // });
+      // Listen for the nft-lost event
+      document.querySelector('#nft').addEventListener('markerLost', function () {
+        console.log("nft lost event")
+        // Hide the button when the NFT is lost
+        handlePauseClick()
+        buttons.style.display = 'none';
+        console.log('NFT lost! Button is hidden.');
+      });
     </script>
   </body>
 </html>
