@@ -3,7 +3,27 @@
   <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
   <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-  
+    <script>
+
+      function handlePlayClick(){
+        console.log("play clicked")
+        document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
+      }
+
+       function handlePauseClick(){
+                 console.log("pause clicked")
+        document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
+      }
+      // Add click listener to trigger animation
+      // document.querySelector('#model').addEventListener('click', function () {
+      //   console.log("click fired")
+      //   // Trigger the animation using the animation-mixer component
+      //   const animationMixer = this.components['animation-mixer'];
+      //   if (animationMixer) {
+      //     this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
+      //   }else console.log("animation mixer is null")
+      // });
+    </script>
   <style>
     .arjs-loader {
       height: 100%;
@@ -78,27 +98,7 @@
       </a-entity>
       
     </a-scene>
-    <script>
-
-      function handlePlayClick(){
-        console.log("play clicked")
-        document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
-      }
-
-       function handlePauseClick(){
-                 console.log("pause clicked")
-        document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
-      }
-      // Add click listener to trigger animation
-      // document.querySelector('#model').addEventListener('click', function () {
-      //   console.log("click fired")
-      //   // Trigger the animation using the animation-mixer component
-      //   const animationMixer = this.components['animation-mixer'];
-      //   if (animationMixer) {
-      //     this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
-      //   }else console.log("animation mixer is null")
-      // });
-    </script>
+  
     
   </body>
 </html>
