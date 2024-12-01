@@ -35,7 +35,7 @@
       renderer="logarithmicDepthBuffer: true;"
       embedded
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: true;"
-      cursor="rayOrigin: mouse">
+      >
     >
     
       <a-nft
@@ -60,24 +60,29 @@
       </a-nft>
 
       <a-entity camera>
-         <a-cursor></a-cursor>
       </a-entity>
       
     </a-scene>
     <script>
-      // Add click listener to trigger animation
-      document.querySelector('#model').addEventListener('click', function () {
-        console.log("click fired")
-        // Trigger the animation using the animation-mixer component
-        const animationMixer = this.components['animation-mixer'];
-        if (animationMixer) {
-          this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
-        }else console.log("animation mixer is null")
-      });
 
-      document.querySelector('#model').addEventListener('mouseenter', function () {
-  console.log('Mouse entered model');
-});
+      function handlePauseClick(){
+        document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
+      }
+
+       function handlePauseClick(){
+        document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
+      }
+      // Add click listener to trigger animation
+      // document.querySelector('#model').addEventListener('click', function () {
+      //   console.log("click fired")
+      //   // Trigger the animation using the animation-mixer component
+      //   const animationMixer = this.components['animation-mixer'];
+      //   if (animationMixer) {
+      //     this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
+      //   }else console.log("animation mixer is null")
+      // });
     </script>
+    <button onClick="handlePlayClick" >Play</button>
+    <button onClick="handlePauseClick" >Pause/</button>
   </body>
 </html>
