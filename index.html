@@ -51,7 +51,7 @@
           scale="10 10 10"
           position="0 0 0"
           rotation="-90 0 0"
-          animation-mixer="loop: once"
+          animation-mixer="loop: once; timeScale: 0"
           id="model"
         >
         </a-entity>
@@ -67,9 +67,8 @@
         // Trigger the animation using the animation-mixer component
         const animationMixer = this.components['animation-mixer'];
         if (animationMixer) {
-          animationMixer.stop();
-          animationMixer.play();  // Restart animation
-        }
+          animationMixer.animationMixer.data.timeScale = 1;  // Play animation at normal speed // Restart animation
+        }else console.log("animation mixer is null")
       });
     </script>
   </body>
