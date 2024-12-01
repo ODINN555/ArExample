@@ -15,6 +15,28 @@
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
       }
 
+       // Get reference to the button
+      const buttons = document.getElementById('buttonsContainer');
+
+      AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+       console.log("nft detcted event")
+        // Show the button when the NFT is detected
+        buttons.style.display = 'flex';
+        console.log('NFT detected! Button is visible.');
+      });
+      
+
+      this.el.sceneEl.addEventListener('markerLost', () => {
+       console.log("nft lost event")
+        // Hide the button when the NFT is lost
+        handlePauseClick()
+        buttons.style.display = 'none';
+        console.log('NFT lost! Button is hidden.');
+      });
+  }
+      });
       
     </script>
   <style>
@@ -98,25 +120,7 @@
       // Get reference to the button
       const buttons = document.getElementById('buttonsContainer');
 
-      AFRAME.registerComponent('markerhandler', {
-    init: function () {
-      this.el.sceneEl.addEventListener('markerFound', () => {
-       console.log("nft detcted event")
-        // Show the button when the NFT is detected
-        buttons.style.display = 'flex';
-        console.log('NFT detected! Button is visible.');
-      });
-      
-
-      this.el.sceneEl.addEventListener('markerLost', () => {
-       console.log("nft lost event")
-        // Hide the button when the NFT is lost
-        handlePauseClick()
-        buttons.style.display = 'none';
-        console.log('NFT lost! Button is hidden.');
-      });
-  }
-      });
+     
       
       // Listen for the nft-detected event
       document.querySelector('#nft').addEventListener('markerFound', function () {
