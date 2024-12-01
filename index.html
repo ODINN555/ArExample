@@ -64,6 +64,7 @@
     <script>
       // Add click listener to trigger animation
       document.querySelector('#model').addEventListener('click', function () {
+        console.log("click fired")
         // Trigger the animation using the animation-mixer component
         const animationMixer = this.components['animation-mixer'];
         if (animationMixer) {
