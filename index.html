@@ -14,15 +14,7 @@
                  console.log("pause clicked")
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
       }
-      // Add click listener to trigger animation
-      // document.querySelector('#model').addEventListener('click', function () {
-      //   console.log("click fired")
-      //   // Trigger the animation using the animation-mixer component
-      //   const animationMixer = this.components['animation-mixer'];
-      //   if (animationMixer) {
-      //     this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
-      //   }else console.log("animation mixer is null")
-      // });
+      
     </script>
   <style>
     .arjs-loader {
@@ -53,12 +45,13 @@
       top: 0;
       left: 0;
       z-index: 9999;
+      display: none;
     }
   </style>
   
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
-    <div class="buttons">    
+    <div id="buttonsContainer" class="buttons">    
     <button onClick="handlePlayClick()" >Play</button>
     <button onClick="handlePauseClick()" >Pause</button>
       </div>
@@ -74,6 +67,7 @@
     >
     
       <a-nft
+        id="nft"
         type="nft"
         url='https://odinn555.github.io/ArExample/goodjob/goodjob'
         smooth="true"
@@ -99,6 +93,23 @@
       
     </a-scene>
   
-    
+    <script>
+      // Get reference to the button
+      const buttons = document.getElementById('buttonsContainer');
+
+      // Listen for the nft-detected event
+      document.querySelector('#nft').addEventListener('nft-detected', function () {
+        // Show the button when the NFT is detected
+        buttons.style.display = 'block';
+        console.log('NFT detected! Button is visible.');
+      });
+
+      // Listen for the nft-lost event
+      document.querySelector('#nft').addEventListener('nft-lost', function () {
+        // Hide the button when the NFT is lost
+        buttons.style.display = 'none';
+        console.log('NFT lost! Button is hidden.');
+      });
+    </script>
   </body>
 </html>
