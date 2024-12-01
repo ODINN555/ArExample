@@ -23,12 +23,25 @@
       font-size: 1.25em;
       color: white;
     }
+
+    .buttons{
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+    }
   </style>
   
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
+    <div class="buttons">    
     <button onClick="handlePlayClick" >Play</button>
     <button onClick="handlePauseClick" >Pause</button>
+      </div>
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
     </div>
