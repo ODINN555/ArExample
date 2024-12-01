@@ -106,6 +106,7 @@
         buttons.style.display = 'flex';
         console.log('NFT detected! Button is visible.');
       });
+      
 
       this.el.sceneEl.addEventListener('markerLost', () => {
        console.log("nft lost event")
@@ -114,7 +115,9 @@
         buttons.style.display = 'none';
         console.log('NFT lost! Button is hidden.');
       });
-  });
+  }
+      });
+      
       // // Listen for the nft-detected event
       // document.querySelector('#nft').addEventListener('nft-detected', function () {
       //   console.log("nft detcted event")
