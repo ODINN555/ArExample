@@ -14,6 +14,7 @@
                  console.log("pause clicked")
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 0;');
       }
+
       
     </script>
   <style>
@@ -97,6 +98,16 @@
       // Get reference to the button
       const buttons = document.getElementById('buttonsContainer');
 
+      AFRAME.registerComponent('markerhandler', {
+    init: function () {
+      this.el.sceneEl.addEventListener('markerFound', () => {
+        // redirect to custom URL
+       console.log("nft detcted event")
+        // Show the button when the NFT is detected
+        buttons.style.display = 'flex';
+        console.log('NFT detected! Button is visible.');
+      });
+  });
       // Listen for the nft-detected event
       document.querySelector('#nft').addEventListener('nft-detected', function () {
         console.log("nft detcted event")
