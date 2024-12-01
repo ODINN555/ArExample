@@ -51,7 +51,8 @@
           scale="10 10 10"
           position="0 0 0"
           rotation="-90 0 0"
-          animation-mixer="loop: repeat"
+          animation-mixer="loop: once"
+          id="model"
         >
         </a-entity>
 <a-light type="point" intensity="10.0" position="0 0 0"></a-light>
@@ -60,5 +61,16 @@
       <a-entity camera></a-entity>
       
     </a-scene>
+    <script>
+      // Add click listener to trigger animation
+      document.querySelector('#model').addEventListener('click', function () {
+        // Trigger the animation using the animation-mixer component
+        const animationMixer = this.components['animation-mixer'];
+        if (animationMixer) {
+          animationMixer.stop();
+          animationMixer.play();  // Restart animation
+        }
+      });
+    </script>
   </body>
 </html>
