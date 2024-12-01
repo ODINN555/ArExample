@@ -70,7 +70,7 @@
         // Trigger the animation using the animation-mixer component
         const animationMixer = this.components['animation-mixer'];
         if (animationMixer) {
-          animationMixer.animationMixer.data.timeScale = 1;  // Play animation at normal speed // Restart animation
+          this.setAttribute('animation-mixer','timeScale: 1.0;');  // Play animation at normal speed // Restart animation
         }else console.log("animation mixer is null")
       });
 
