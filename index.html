@@ -107,6 +107,7 @@
       // Listen for the nft-lost event
       document.querySelector('#nft').addEventListener('nft-lost', function () {
         // Hide the button when the NFT is lost
+        handlePauseClick()
         buttons.style.display = 'none';
         console.log('NFT lost! Button is hidden.');
       });
