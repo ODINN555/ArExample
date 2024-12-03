@@ -33,6 +33,12 @@
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
       }
 
+      function onSliderChange(value){
+        console.log("Z slider value: "+value)
+        
+        document.getElementById("model").setAttribute('position', {x: 60, y: 290, z: 10});
+      }
+
     // register events
       AFRAME.registerComponent('markerhandler', {
     init: function () {
@@ -83,6 +89,9 @@
   
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
+    <div class=".buttons">
+  <input type="range" min="-100" max="100" value="0" class="slider" id="myRange" onChange="onSliderChange(this.value)">
+</div>
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
     </div>
