@@ -93,9 +93,7 @@
       arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
       >
     >
-    <a-assets>
-            <a-asset-item id="glb-asset" src="./UFO.glb" response-type=“arraybuffer”></a-asset-item>
-        </a-assets>
+  
       <a-nft
         id="nft"
         type="nft"
@@ -107,7 +105,7 @@
         markerhandler
       >
         <a-entity
-          gltf-model="#glb-asset"
+          gltf-model="./UFO.glb"
           scale="10 10 10"
           position="0 0 0"
           rotation="-90 0 0"
