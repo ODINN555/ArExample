@@ -36,7 +36,13 @@
       function onSliderChange(value){
         console.log("Y slider value: "+value)
         
-        document.getElementById("model").setAttribute('position', {x: value, y: 400, z: -150});
+        document.getElementById("model").setAttribute('position', {x: 200, y: value, z: -300});
+        
+      }
+
+      function onScaleSliderChange(value){
+        console.log("scale slider value: "+value)
+        document.getElementById("model").setAttribute('scale', {x: value, y: value, z: value});
       }
 
     // register events
@@ -90,7 +96,9 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
     <div class=".buttons">
-  <input type="range" min="-50" max="150" value="50" class="slider" id="myRange" onInput="onSliderChange(this.value)">
+  <input type="range" min="500" max="1500" value="550" class="slider" id="myRange" onInput="onSliderChange(this.value)">
+  <input type="range" min="100" max="800" value="700" class="slider" id="myRange2" onInput="onScaleSliderChange(this.value)">
+
 </div>
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
