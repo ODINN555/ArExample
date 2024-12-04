@@ -33,7 +33,7 @@
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
       }
 
-      var debuggedComponentId = "light"
+      var debuggedComponentId = "bottomLight"
       
       function onXSliderChange(value){
         console.log("x slider value: "+value)
@@ -140,10 +140,10 @@
           id="model"
         >
         </a-entity>
-        <a-light type="point" intensity="5" position="150 600 -500"></a-light>
-         <a-light  type="point" intensity="5" position="150 600 -400"></a-light>
-        <a-entity light="type: ambient;"></a-entity>
-         <a-light id="light" type="point" intensity="10" position="170 1000 -900"></a-light>
+        <a-light id="topLight" type="point" intensity="5" position="150 600 -500"></a-light>
+         <a-light id="bottomLight" type="point" intensity="5" position="150 600 -400"></a-light>
+        
+         <a-light id="outsideLight" type="point" intensity="10" position="170 1000 -900"></a-light>
       </a-nft>
 
       <a-entity camera>
