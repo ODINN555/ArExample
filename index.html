@@ -85,7 +85,7 @@
         // substitute the material     
         node.material = new THREE.MeshStandardMaterial({
            skinning: true, // the original material is using skinning
-           map: node.material.map // we want the original texture
+           map: node.material.map, // we want the original texture
            normalMap: node.material.normalMap
         });
         // update and clean up
