@@ -68,33 +68,34 @@
   }
       });
 
-    //   AFRAME.registerComponent('model',{
+      AFRAME.registerComponent('model',{
 
-    //     init: function(){
-    //     // wait until the model is loaded
-    // this.el.addEventListener("model-loaded", e => {
-    //   // grab the mesh 
-    //   let model = this.el.getObject3D("mesh");
-    //   // find the node with the basic material     
-    //   model.traverse(function(node) {
-    //     // ignore bones and other nodes without any material 
-    //     if (!node.material) return;
+        init: function(){
+        // wait until the model is loaded
+    this.el.addEventListener("model-loaded", e => {
+      // grab the mesh 
+      let model = this.el.getObject3D("mesh");
+      // find the node with the basic material     
+      model.traverse(function(node) {
+        // ignore bones and other nodes without any material 
+        if (!node.material) return;
 
-    //     // keep the reference to the old material - we want to dispose it later
-    //     var tmp = node.material
-    //     // substitute the material     
-    //     node.material = new THREE.MeshStandardMaterial({
-    //        skinning: true, // the original material is using skinning
-    //        map: node.material.map, // we want the original texture
-    //        normalMap: node.material.normalMap
-    //     });
-    //     // update and clean up
-    //     node.material.needsUpdate = true;
-    //     tmp.dispose()
-    //   })
-    // })
-    //     }
-    //   })
+        // keep the reference to the old material - we want to dispose it later
+        var tmp = node.material
+        // substitute the material     
+        node.material = new THREE.MeshStandardMaterial({
+           skinning: true, // the original material is using skinning
+           map: node.material.map, // we want the original texture
+           normalMap: node.material.normalMap,
+           aoMap: node.material.aoMap
+        });
+        // update and clean up
+        node.material.needsUpdate = true;
+        tmp.dispose()
+      })
+    })
+        }
+      })
       
     </script>
   <style>
@@ -175,7 +176,7 @@
          <a-light id="bottomLight" type="point" intensity="5" position="150 600 -400"></a-light>
 
          <a-light id="outsideLight" type="point" intensity="10" position="170 1000 -900"></a-light> -->
-         <a-entity light="type: ambient; intensity: 100"></a-entity>        
+         <a-entity light="type: ambient; intensity: 1"></a-entity>        
       </a-nft>
 
       <a-entity camera>
