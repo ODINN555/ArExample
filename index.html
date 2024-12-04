@@ -36,13 +36,13 @@
       function onSliderChange(value){
         console.log("Y slider value: "+value)
         
-        document.getElementById("model").setAttribute('position', {x: 200, y: value, z: -300});
+        document.getElementById("light").setAttribute('position', {x: 200, y: value, z: -300});
         
       }
 
       function onScaleSliderChange(value){
         console.log("scale slider value: "+value)
-        document.getElementById("model").setAttribute('scale', {x: value, y: value, z: value});
+        document.getElementById("light").setAttribute('intensity', value);
       }
 
     // register events
@@ -96,8 +96,8 @@
   <body style="margin : 0px; overflow: hidden;">
     <!-- minimal loader shown until image descriptors are loaded -->
     <div class=".buttons">
-  <input type="range" min="500" max="1500" value="550" class="slider" id="myRange" onInput="onSliderChange(this.value)">
-  <input type="range" min="100" max="800" value="700" class="slider" id="myRange2" onInput="onScaleSliderChange(this.value)">
+  <input type="range" min="-200" max="200" value="0" class="slider" id="myRange" onInput="onSliderChange(this.value)">
+  <input type="range" min="10" max="200" value="100" class="slider" id="myRange2" onInput="onScaleSliderChange(this.value)">
 
 </div>
     <div class="arjs-loader">
@@ -131,7 +131,7 @@
         >
         </a-entity>
 <!--         <a-light type="point" intensity="10" position="0 400 -100"></a-light> -->
-         <a-light type="point" intensity="10" position="0 0 30"></a-light>
+         <a-light id="light" type="point" intensity="100" position="0 0 30"></a-light>
 
       </a-nft>
 
