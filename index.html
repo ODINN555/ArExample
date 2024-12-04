@@ -37,19 +37,21 @@
       
       function onXSliderChange(value){
         console.log("x slider value: "+value)
-        
-        document.getElementById(debuggedComponentId).setAttribute('position', {x: value, y:  document.getElementById("light").getAttribute('position').y, z:  document.getElementById("light").getAttribute('position').z});
+                let component = document.getElementById(debuggedComponentId)
+        component.setAttribute('position', {x: value, y:  component.getAttribute('position').y, z:  component.getAttribute('position').z});
         
       }
 
       function onYSliderChange(value){
+        let component = document.getElementById(debuggedComponentId)
         console.log("y slider value: "+value)
-       document.getElementById(debuggedComponentId).setAttribute('position', {x: document.getElementById("light").getAttribute('position').x, y: value, z:  document.getElementById("light").getAttribute('position').z});
+       component.setAttribute('position', {x: component.getAttribute('position').x, y: value, z:  component.getAttribute('position').z});
       }
 
       function onZSliderChange(value){
         console.log("z slider value: "+value)
-        document.getElementById(debuggedComponentId).setAttribute('position', {x: document.getElementById("light").getAttribute('position').x, y: document.getElementById("light").getAttribute('position').y, z: value});
+        let component = document.getElementById(debuggedComponentId)
+        component.setAttribute('position', {x: component.getAttribute('position').x, y: component.getAttribute('position').y, z: value});
       }
 
     // register events
