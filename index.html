@@ -33,16 +33,23 @@
         document.getElementById("model").setAttribute('animation-mixer','timeScale: 1.0;');
       }
 
-      function onSliderChange(value){
+      var debuggedComponentId = "light"
+      
+      function onXSliderChange(value){
         console.log("Y slider value: "+value)
         
-        document.getElementById("light").setAttribute('position', {x: 150, y: value, z:  document.getElementById("light").getAttribute('position').z});
+        document.getElementById(debuggedComponentId).setAttribute('position', {x: value, y:  document.getElementById("light").getAttribute('position').y, z:  document.getElementById("light").getAttribute('position').z});
         
       }
 
-      function onScaleSliderChange(value){
-        console.log("scale slider value: "+value)
-        document.getElementById("light").setAttribute('position', {x: 150, y: document.getElementById("light").getAttribute('position').y, z: value});
+      function onYSliderChange(value){
+        console.log("x slider value: "+value)
+       document.getElementById(debuggedComponentId).setAttribute('position', {x: document.getElementById("light").getAttribute('position').x, y: value, z:  document.getElementById("light").getAttribute('position').z});
+      }
+
+      function onZSliderChange(value){
+        console.log("z slider value: "+value)
+        document.getElementById(debuggedComponentId).setAttribute('position', {x: document.getElementById("light").getAttribute('position').x, y: document.getElementById("light").getAttribute('position').y, z: value});
       }
 
     // register events
@@ -95,11 +102,13 @@
   
   <body style="margin : 0px; overflow: hidden;">
 <!--     Used for debugging only -->
-<!--     <div class=".buttons">
-  <input type="range" min="-200" max="200" value="0" class="slider" id="myRange" onInput="onSliderChange(this.value)">
-  <input type="range" min="-800" max="400" value="-200" class="slider" id="myRange2" onInput="onScaleSliderChange(this.value)">
+    <div class=".buttons">
+  <input type="range" min="-1000" max="1000" value="0" class="slider" id="x" onInput="onXSliderChange(this.value)">
+  <input type="range" min="-1000" max="1000" value="0" class="slider" id="y" onInput="onYSliderChange(this.value)">
+  <input type="range" min="-1000" max="1000" value="0" class="slider" id="z" onInput="onZSliderChange(this.value)">
+
   <button onClick="pauseAnimation()">pause</button>
-</div> -->
+</div>
         <!-- minimal loader shown until image descriptors are loaded -->
     <div class="arjs-loader">
       <div>Loading, please wait...</div>
@@ -131,7 +140,7 @@
           id="model"
         >
         </a-entity>
-        <a-light type="point" intensity="3" position="0 0 -800"></a-light>
+<!--         <a-light type="point" intensity="3" position="0 0 -800"></a-light> -->
          <a-light id="light" type="point" intensity="3" position="200 800 -500"></a-light>
 
       </a-nft>
