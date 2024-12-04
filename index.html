@@ -36,14 +36,14 @@
       var debuggedComponentId = "light"
       
       function onXSliderChange(value){
-        console.log("Y slider value: "+value)
+        console.log("x slider value: "+value)
         
         document.getElementById(debuggedComponentId).setAttribute('position', {x: value, y:  document.getElementById("light").getAttribute('position').y, z:  document.getElementById("light").getAttribute('position').z});
         
       }
 
       function onYSliderChange(value){
-        console.log("x slider value: "+value)
+        console.log("y slider value: "+value)
        document.getElementById(debuggedComponentId).setAttribute('position', {x: document.getElementById("light").getAttribute('position').x, y: value, z:  document.getElementById("light").getAttribute('position').z});
       }
 
@@ -141,7 +141,7 @@
         >
         </a-entity>
 <!--         <a-light type="point" intensity="3" position="0 0 -800"></a-light> -->
-         <a-light id="light" type="point" intensity="3" position="200 800 -500"></a-light>
+         <a-light id="light" type="point" intensity="3" position="170 1000 -270"></a-light>
 
       </a-nft>
 
