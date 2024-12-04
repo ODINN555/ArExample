@@ -68,34 +68,34 @@
   }
       });
 
-      AFRAME.registerComponent('model',{
+    //   AFRAME.registerComponent('model',{
 
-        init: function(){
-        // wait until the model is loaded
-    this.el.addEventListener("model-loaded", e => {
-      // grab the mesh 
-      let model = this.el.getObject3D("mesh");
-      // find the node with the basic material     
-      model.traverse(function(node) {
-        // ignore bones and other nodes without any material 
-        if (!node.material) return;
+    //     init: function(){
+    //     // wait until the model is loaded
+    // this.el.addEventListener("model-loaded", e => {
+    //   // grab the mesh 
+    //   let model = this.el.getObject3D("mesh");
+    //   // find the node with the basic material     
+    //   model.traverse(function(node) {
+    //     // ignore bones and other nodes without any material 
+    //     if (!node.material) return;
 
-        // keep the reference to the old material - we want to dispose it later
-        var tmp = node.material
-        // substitute the material     
-        node.material = new THREE.MeshStandardMaterial({
-           skinning: true, // the original material is using skinning
-           map: node.material.map, // we want the original texture
-           normalMap: node.material.normalMap,
-           aoMap: node.material.aoMap
-        });
-        // update and clean up
-        node.material.needsUpdate = true;
-        tmp.dispose()
-      })
-    })
-        }
-      })
+    //     // keep the reference to the old material - we want to dispose it later
+    //     var tmp = node.material
+    //     // substitute the material     
+    //     node.material = new THREE.MeshStandardMaterial({
+    //        skinning: true, // the original material is using skinning
+    //        map: node.material.map, // we want the original texture
+    //        normalMap: node.material.normalMap,
+    //        aoMap: node.material.aoMap
+    //     });
+    //     // update and clean up
+    //     node.material.needsUpdate = true;
+    //     tmp.dispose()
+    //   })
+    // })
+    //     }
+    //   })
       
     </script>
   <style>
@@ -162,7 +162,8 @@
         smoothThreshold="5"
         markerhandler
       >
-        <a-entity
+        <a-light type="directional" position="0 0 0" rotation="-90 0 0" target="#model">
+            <a-entity
           gltf-model="./ar_safe_gold.glb"
           scale="800 800 800"
           position="200 550 -500"
@@ -171,16 +172,18 @@
           id="model"
           model
         >
+        </a-light>
+        
         </a-entity>
 <!--         <a-light id="topLight" type="point" intensity="5" position="150 600 -500"></a-light>
          <a-light id="bottomLight" type="point" intensity="5" position="150 600 -400"></a-light>
 
          <a-light id="outsideLight" type="point" intensity="10" position="170 1000 -900"></a-light> -->
-         <a-entity light="type: ambient; intensity: 1"></a-entity>        
+<!--          <a-entity light="type: ambient; intensity: 1"></a-entity>         -->
       </a-nft>
 
       <a-entity camera>
-        <a-light id="cameraLight" type="point" intensity="0.2" position="0 -10 0"></a-light> -->
+<!--         <a-light id="cameraLight" type="point" intensity="0.2" position="0 -10 0"></a-light> --> -->
       </a-entity>
       
     </a-scene>
